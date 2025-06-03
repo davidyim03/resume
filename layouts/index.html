@@ -1,0 +1,111 @@
+{{ define "main" }}
+<style>
+    .main, .single-container {
+      max-width: 100% !important;
+      width: 100% !important;
+      padding: 0 !important;
+    }
+  
+    .resume-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding: 3rem 2rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  
+    .resume-content {
+      flex: 1;
+      max-width: 880px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+  
+    .resume-content h2 {
+      font-size: 1.4rem;
+      margin-top: 3rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid var(--border);
+    }
+  
+    .resume-content p,
+    .resume-content li {
+      margin-bottom: 1.1rem;
+    }
+  
+    .resume-content ul {
+      padding-left: 1.2rem;
+    }
+  
+    .resume-sidebar {
+      position: sticky;
+      top: 6rem;
+      width: 220px;
+      padding: 1.2rem 1rem;
+      border-left: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      height: fit-content;
+      background-color: var(--code-bg);
+    }
+  
+    .resume-sidebar strong {
+      display: block;
+      color: var(--secondary);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+  
+    .resume-sidebar a {
+      display: block;
+      margin-bottom: 0.6rem;
+      text-decoration: none;
+      color: var(--fg);
+      font-weight: 400;
+      transition: all 0.2s ease;
+    }
+  
+    .resume-sidebar a:hover {
+      color: var(--primary);
+      font-weight: 600;
+      transform: translateX(4px);
+    }
+  
+    /* Optional: force border color fallback if CSS vars unsupported */
+    html:not([data-theme]) .resume-sidebar,
+    html:not([data-theme]) .resume-content h2 {
+      border-color: #ccc;
+    }
+  
+    @media (max-width: 900px) {
+      .resume-wrapper {
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+      }
+  
+      .resume-sidebar {
+        display: none;
+      }
+  
+      .resume-content {
+        max-width: 100%;
+      }
+    }
+</style>
+<div class="resume-wrapper">
+  <div class="resume-content">
+    {{ .Content }}
+  </div>
+
+  <aside class="resume-sidebar">
+    <strong>Jump to:</strong>
+    <a href="#education">🎓 Education</a>
+    <a href="#experience">💼 Experience</a>
+    <a href="#leadership">🪖 Leadership</a>
+    <a href="#projects">🛠 Projects</a>
+    <a href="#skills">🧠 Skills</a>
+  </aside>
+</div>
+{{ end }}
